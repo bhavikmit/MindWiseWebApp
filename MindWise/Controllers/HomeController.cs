@@ -27,4 +27,4 @@ namespace MindWise.Controllers
             return View();
         }
     }
-}
+} 
