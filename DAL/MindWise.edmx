@@ -1,0 +1,714 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="A_PROV_BASE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BASE_ID" Type="int" />
+          <Property Name="SourceID" Type="int" />
+          <Property Name="BaseInfo" Type="varchar" MaxLength="255" />
+          <Property Name="BaseDate" Type="varchar" MaxLength="255" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="A_PROV_BINWALK">
+          <Key>
+            <PropertyRef Name="BIN" />
+          </Key>
+          <Property Name="BIN" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ClientID" Type="int" />
+          <Property Name="ClientName" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="A_PROV_CLIENT">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientName" Type="varchar" MaxLength="255" />
+          <Property Name="ClientContact" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="A_PROV_CVV_LDG">
+          <Key>
+            <PropertyRef Name="RECORDID" />
+            <PropertyRef Name="SourceID" />
+            <PropertyRef Name="BASE_ID" />
+            <PropertyRef Name="BIN" />
+          </Key>
+          <Property Name="RECORDID" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="SourceID" Type="int" Nullable="false" />
+          <Property Name="BASE_ID" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BIN" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BANK" Type="varchar(max)" />
+          <Property Name="CARD_TYPE" Type="varchar(max)" />
+          <Property Name="CARD_CLASS" Type="varchar(max)" />
+          <Property Name="CARD_LEVEL" Type="varchar(max)" />
+          <Property Name="CARD_EXP" Type="varchar(max)" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="25" />
+          <Property Name="STATE" Type="varchar(max)" />
+          <Property Name="CITY" Type="varchar(max)" />
+          <Property Name="ZIP" Type="varchar(max)" />
+          <Property Name="DOB" Type="varchar(max)" />
+          <Property Name="SSN" Type="varchar(max)" />
+          <Property Name="EMAIL" Type="varchar(max)" />
+          <Property Name="PHONE" Type="varchar(max)" />
+          <Property Name="GENDER" Type="varchar(max)" />
+          <Property Name="ADDR_LINE_1" Type="varchar(max)" />
+          <Property Name="ADDR_LINE_2" Type="varchar(max)" />
+          <Property Name="FIRST_NAME" Type="varchar(max)" />
+          <Property Name="LAST_NAME" Type="varchar(max)" />
+          <Property Name="PRICE" Type="varchar(max)" />
+          <Property Name="DateAdded" Type="datetime" />
+        </EntityType>
+        <EntityType Name="A_PROV_CVV_PR">
+          <Key>
+            <PropertyRef Name="SourceID" />
+            <PropertyRef Name="BASE_ID" />
+            <PropertyRef Name="BIN" />
+          </Key>
+          <Property Name="RECORDID" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="SourceID" Type="int" Nullable="false" />
+          <Property Name="BASE_ID" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BIN" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BANK" Type="varchar" MaxLength="255" />
+          <Property Name="CARD_TYPE" Type="varchar" MaxLength="255" />
+          <Property Name="CARD_CLASS" Type="varchar" MaxLength="255" />
+          <Property Name="CARD_LEVEL" Type="varchar" MaxLength="255" />
+          <Property Name="CARD_EXP" Type="varchar" MaxLength="255" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="25" />
+          <Property Name="STATE" Type="varchar" MaxLength="255" />
+          <Property Name="CITY" Type="varchar" MaxLength="255" />
+          <Property Name="ZIP" Type="varchar" MaxLength="255" />
+          <Property Name="DOB" Type="varchar" MaxLength="255" />
+          <Property Name="SSN" Type="varchar" MaxLength="255" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="255" />
+          <Property Name="PHONE" Type="varchar" MaxLength="255" />
+          <Property Name="GENDER" Type="varchar" MaxLength="255" />
+          <Property Name="ADDR_LINE_1" Type="varchar" MaxLength="255" />
+          <Property Name="ADDR_LINE_2" Type="varchar" MaxLength="255" />
+          <Property Name="FIRST_NAME" Type="varchar" MaxLength="255" />
+          <Property Name="LAST_NAME" Type="varchar" MaxLength="255" />
+          <Property Name="PRICE" Type="varchar" MaxLength="255" />
+          <Property Name="DateAdded" Type="datetime" />
+        </EntityType>
+        <EntityType Name="A_PROV_DUMPS_LDG">
+          <Key>
+            <PropertyRef Name="RECORDID" />
+            <PropertyRef Name="SourceID" />
+            <PropertyRef Name="BASE_ID" />
+          </Key>
+          <Property Name="RECORDID" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="SourceID" Type="int" Nullable="false" />
+          <Property Name="BASE_ID" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BIN" Type="varchar" MaxLength="255" />
+          <Property Name="COUNTRY" Type="varchar(max)" />
+          <Property Name="STATE" Type="varchar(max)" />
+          <Property Name="CITY" Type="varchar(max)" />
+          <Property Name="ZIP" Type="varchar(max)" />
+          <Property Name="BANK" Type="varchar(max)" />
+          <Property Name="CARD_TYPE" Type="varchar(max)" />
+          <Property Name="CARD_LEVEL" Type="varchar(max)" />
+          <Property Name="CARD_CLASS" Type="varchar(max)" />
+          <Property Name="TRACKS" Type="varchar(max)" />
+          <Property Name="TRACK_TYPE" Type="varchar(max)" />
+          <Property Name="REFUNDABLE" Type="varchar(max)" />
+          <Property Name="PRICE" Type="varchar(max)" />
+          <Property Name="DateAdded" Type="datetime" />
+        </EntityType>
+        <EntityType Name="A_PROV_DUMPS_PR">
+          <Key>
+            <PropertyRef Name="RECORDID" />
+            <PropertyRef Name="SourceID" />
+            <PropertyRef Name="BASE_ID" />
+          </Key>
+          <Property Name="RECORDID" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="SourceID" Type="int" Nullable="false" />
+          <Property Name="BASE_ID" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BIN" Type="varchar" MaxLength="255" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="255" />
+          <Property Name="STATE" Type="varchar" MaxLength="255" />
+          <Property Name="CITY" Type="varchar" MaxLength="255" />
+          <Property Name="ZIP" Type="varchar" MaxLength="255" />
+          <Property Name="BANK" Type="varchar" MaxLength="255" />
+          <Property Name="CARD_TYPE" Type="varchar" MaxLength="255" />
+          <Property Name="CARD_LEVEL" Type="varchar" MaxLength="255" />
+          <Property Name="CARD_CLASS" Type="varchar" MaxLength="255" />
+          <Property Name="TRACKS" Type="varchar" MaxLength="255" />
+          <Property Name="TRACK_TYPE" Type="varchar" MaxLength="255" />
+          <Property Name="REFUNDABLE" Type="varchar" MaxLength="255" />
+          <Property Name="PRICE" Type="varchar" MaxLength="255" />
+          <Property Name="DateAdded" Type="datetime" />
+        </EntityType>
+        <EntityType Name="A_PROV_SRC">
+          <Key>
+            <PropertyRef Name="SourceID" />
+          </Key>
+          <Property Name="SourceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SrcName" Type="varchar" MaxLength="255" />
+          <Property Name="SrcURL" Type="varchar" MaxLength="255" />
+          <Property Name="SrcAltURL" Type="varchar" MaxLength="255" />
+          <Property Name="SrcMetadata" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'mindwise-prod.dbo.USBANK_BinList' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="USBANK_BinList">
+          <Property Name="BIN" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <Association Name="FK__A_PROV_BA__Sourc__4D94879B">
+          <End Role="A_PROV_SRC" Type="Self.A_PROV_SRC" Multiplicity="0..1" />
+          <End Role="A_PROV_BASE" Type="Self.A_PROV_BASE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_PROV_SRC">
+              <PropertyRef Name="SourceID" />
+            </Principal>
+            <Dependent Role="A_PROV_BASE">
+              <PropertyRef Name="SourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__A_PROV_BI__Clien__5165187F">
+          <End Role="A_PROV_CLIENT" Type="Self.A_PROV_CLIENT" Multiplicity="0..1" />
+          <End Role="A_PROV_BINWALK" Type="Self.A_PROV_BINWALK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_PROV_CLIENT">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="A_PROV_BINWALK">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__A_PROV_CV__Sourc__5812160E">
+          <End Role="A_PROV_SRC" Type="Self.A_PROV_SRC" Multiplicity="1" />
+          <End Role="A_PROV_CVV_PR" Type="Self.A_PROV_CVV_PR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_PROV_SRC">
+              <PropertyRef Name="SourceID" />
+            </Principal>
+            <Dependent Role="A_PROV_CVV_PR">
+              <PropertyRef Name="SourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__A_PROV_CV__Sourc__71D1E811">
+          <End Role="A_PROV_SRC" Type="Self.A_PROV_SRC" Multiplicity="1" />
+          <End Role="A_PROV_CVV_LDG" Type="Self.A_PROV_CVV_LDG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_PROV_SRC">
+              <PropertyRef Name="SourceID" />
+            </Principal>
+            <Dependent Role="A_PROV_CVV_LDG">
+              <PropertyRef Name="SourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__A_PROV_DU__Sourc__5BE2A6F2">
+          <End Role="A_PROV_SRC" Type="Self.A_PROV_SRC" Multiplicity="1" />
+          <End Role="A_PROV_DUMPS_LDG" Type="Self.A_PROV_DUMPS_LDG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_PROV_SRC">
+              <PropertyRef Name="SourceID" />
+            </Principal>
+            <Dependent Role="A_PROV_DUMPS_LDG">
+              <PropertyRef Name="SourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__A_PROV_DU__Sourc__60A75C0F">
+          <End Role="A_PROV_SRC" Type="Self.A_PROV_SRC" Multiplicity="1" />
+          <End Role="A_PROV_DUMPS_PR" Type="Self.A_PROV_DUMPS_PR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_PROV_SRC">
+              <PropertyRef Name="SourceID" />
+            </Principal>
+            <Dependent Role="A_PROV_DUMPS_PR">
+              <PropertyRef Name="SourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="A_PROV_BASE" EntityType="Self.A_PROV_BASE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="A_PROV_BINWALK" EntityType="Self.A_PROV_BINWALK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="A_PROV_CLIENT" EntityType="Self.A_PROV_CLIENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="A_PROV_CVV_LDG" EntityType="Self.A_PROV_CVV_LDG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="A_PROV_CVV_PR" EntityType="Self.A_PROV_CVV_PR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="A_PROV_DUMPS_LDG" EntityType="Self.A_PROV_DUMPS_LDG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="A_PROV_DUMPS_PR" EntityType="Self.A_PROV_DUMPS_PR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="A_PROV_SRC" EntityType="Self.A_PROV_SRC" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__A_PROV_BA__Sourc__4D94879B" Association="Self.FK__A_PROV_BA__Sourc__4D94879B">
+            <End Role="A_PROV_SRC" EntitySet="A_PROV_SRC" />
+            <End Role="A_PROV_BASE" EntitySet="A_PROV_BASE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__A_PROV_BI__Clien__5165187F" Association="Self.FK__A_PROV_BI__Clien__5165187F">
+            <End Role="A_PROV_CLIENT" EntitySet="A_PROV_CLIENT" />
+            <End Role="A_PROV_BINWALK" EntitySet="A_PROV_BINWALK" />
+          </AssociationSet>
+          <AssociationSet Name="FK__A_PROV_CV__Sourc__5812160E" Association="Self.FK__A_PROV_CV__Sourc__5812160E">
+            <End Role="A_PROV_SRC" EntitySet="A_PROV_SRC" />
+            <End Role="A_PROV_CVV_PR" EntitySet="A_PROV_CVV_PR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__A_PROV_CV__Sourc__71D1E811" Association="Self.FK__A_PROV_CV__Sourc__71D1E811">
+            <End Role="A_PROV_SRC" EntitySet="A_PROV_SRC" />
+            <End Role="A_PROV_CVV_LDG" EntitySet="A_PROV_CVV_LDG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__A_PROV_DU__Sourc__5BE2A6F2" Association="Self.FK__A_PROV_DU__Sourc__5BE2A6F2">
+            <End Role="A_PROV_SRC" EntitySet="A_PROV_SRC" />
+            <End Role="A_PROV_DUMPS_LDG" EntitySet="A_PROV_DUMPS_LDG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__A_PROV_DU__Sourc__60A75C0F" Association="Self.FK__A_PROV_DU__Sourc__60A75C0F">
+            <End Role="A_PROV_SRC" EntitySet="A_PROV_SRC" />
+            <End Role="A_PROV_DUMPS_PR" EntitySet="A_PROV_DUMPS_PR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="A_PROV_BASE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BASE_ID" Type="Int32" />
+          <Property Name="SourceID" Type="Int32" />
+          <Property Name="BaseInfo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="BaseDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="A_PROV_SRC" Relationship="Self.FK__A_PROV_BA__Sourc__4D94879B" FromRole="A_PROV_BASE" ToRole="A_PROV_SRC" />
+        </EntityType>
+        <EntityType Name="A_PROV_BINWALK">
+          <Key>
+            <PropertyRef Name="BIN" />
+          </Key>
+          <Property Name="BIN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ClientID" Type="Int32" />
+          <Property Name="ClientName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="A_PROV_CLIENT" Relationship="Self.FK__A_PROV_BI__Clien__5165187F" FromRole="A_PROV_BINWALK" ToRole="A_PROV_CLIENT" />
+        </EntityType>
+        <EntityType Name="A_PROV_CLIENT">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ClientContact" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="A_PROV_BINWALK" Relationship="Self.FK__A_PROV_BI__Clien__5165187F" FromRole="A_PROV_CLIENT" ToRole="A_PROV_BINWALK" />
+        </EntityType>
+        <EntityType Name="A_PROV_CVV_LDG">
+          <Key>
+            <PropertyRef Name="RECORDID" />
+            <PropertyRef Name="SourceID" />
+            <PropertyRef Name="BASE_ID" />
+            <PropertyRef Name="BIN" />
+          </Key>
+          <Property Name="RECORDID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SourceID" Type="Int32" Nullable="false" />
+          <Property Name="BASE_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BIN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BANK" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CARD_TYPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CARD_CLASS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CARD_LEVEL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CARD_EXP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="STATE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ZIP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SSN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="GENDER" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR_LINE_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR_LINE_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PRICE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="A_PROV_SRC" Relationship="Self.FK__A_PROV_CV__Sourc__71D1E811" FromRole="A_PROV_CVV_LDG" ToRole="A_PROV_SRC" />
+        </EntityType>
+        <EntityType Name="A_PROV_CVV_PR">
+          <Key>
+            <PropertyRef Name="SourceID" />
+            <PropertyRef Name="BASE_ID" />
+            <PropertyRef Name="BIN" />
+          </Key>
+          <Property Name="RECORDID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SourceID" Type="Int32" Nullable="false" />
+          <Property Name="BASE_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BIN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BANK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CARD_TYPE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CARD_CLASS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CARD_LEVEL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CARD_EXP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="STATE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ZIP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SSN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="GENDER" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR_LINE_1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR_LINE_2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PRICE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="A_PROV_SRC" Relationship="Self.FK__A_PROV_CV__Sourc__5812160E" FromRole="A_PROV_CVV_PR" ToRole="A_PROV_SRC" />
+        </EntityType>
+        <EntityType Name="A_PROV_DUMPS_LDG">
+          <Key>
+            <PropertyRef Name="RECORDID" />
+            <PropertyRef Name="SourceID" />
+            <PropertyRef Name="BASE_ID" />
+          </Key>
+          <Property Name="RECORDID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SourceID" Type="Int32" Nullable="false" />
+          <Property Name="BASE_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BIN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="STATE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ZIP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BANK" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CARD_TYPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CARD_LEVEL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CARD_CLASS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TRACKS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TRACK_TYPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="REFUNDABLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PRICE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="A_PROV_SRC" Relationship="Self.FK__A_PROV_DU__Sourc__5BE2A6F2" FromRole="A_PROV_DUMPS_LDG" ToRole="A_PROV_SRC" />
+        </EntityType>
+        <EntityType Name="A_PROV_DUMPS_PR">
+          <Key>
+            <PropertyRef Name="RECORDID" />
+            <PropertyRef Name="SourceID" />
+            <PropertyRef Name="BASE_ID" />
+          </Key>
+          <Property Name="RECORDID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SourceID" Type="Int32" Nullable="false" />
+          <Property Name="BASE_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BIN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="STATE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ZIP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="BANK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CARD_TYPE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CARD_LEVEL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CARD_CLASS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TRACKS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TRACK_TYPE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="REFUNDABLE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PRICE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdded" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="A_PROV_SRC" Relationship="Self.FK__A_PROV_DU__Sourc__60A75C0F" FromRole="A_PROV_DUMPS_PR" ToRole="A_PROV_SRC" />
+        </EntityType>
+        <EntityType Name="A_PROV_SRC">
+          <Key>
+            <PropertyRef Name="SourceID" />
+          </Key>
+          <Property Name="SourceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SrcName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SrcURL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SrcAltURL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SrcMetadata" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="A_PROV_BASE" Relationship="Self.FK__A_PROV_BA__Sourc__4D94879B" FromRole="A_PROV_SRC" ToRole="A_PROV_BASE" />
+          <NavigationProperty Name="A_PROV_CVV_LDG" Relationship="Self.FK__A_PROV_CV__Sourc__71D1E811" FromRole="A_PROV_SRC" ToRole="A_PROV_CVV_LDG" />
+          <NavigationProperty Name="A_PROV_CVV_PR" Relationship="Self.FK__A_PROV_CV__Sourc__5812160E" FromRole="A_PROV_SRC" ToRole="A_PROV_CVV_PR" />
+          <NavigationProperty Name="A_PROV_DUMPS_LDG" Relationship="Self.FK__A_PROV_DU__Sourc__5BE2A6F2" FromRole="A_PROV_SRC" ToRole="A_PROV_DUMPS_LDG" />
+          <NavigationProperty Name="A_PROV_DUMPS_PR" Relationship="Self.FK__A_PROV_DU__Sourc__60A75C0F" FromRole="A_PROV_SRC" ToRole="A_PROV_DUMPS_PR" />
+        </EntityType>
+        <Association Name="FK__A_PROV_BA__Sourc__4D94879B">
+          <End Role="A_PROV_SRC" Type="Self.A_PROV_SRC" Multiplicity="0..1" />
+          <End Role="A_PROV_BASE" Type="Self.A_PROV_BASE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_PROV_SRC">
+              <PropertyRef Name="SourceID" />
+            </Principal>
+            <Dependent Role="A_PROV_BASE">
+              <PropertyRef Name="SourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__A_PROV_BI__Clien__5165187F">
+          <End Role="A_PROV_CLIENT" Type="Self.A_PROV_CLIENT" Multiplicity="0..1" />
+          <End Role="A_PROV_BINWALK" Type="Self.A_PROV_BINWALK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_PROV_CLIENT">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="A_PROV_BINWALK">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__A_PROV_CV__Sourc__71D1E811">
+          <End Role="A_PROV_SRC" Type="Self.A_PROV_SRC" Multiplicity="1" />
+          <End Role="A_PROV_CVV_LDG" Type="Self.A_PROV_CVV_LDG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_PROV_SRC">
+              <PropertyRef Name="SourceID" />
+            </Principal>
+            <Dependent Role="A_PROV_CVV_LDG">
+              <PropertyRef Name="SourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__A_PROV_CV__Sourc__5812160E">
+          <End Role="A_PROV_SRC" Type="Self.A_PROV_SRC" Multiplicity="1" />
+          <End Role="A_PROV_CVV_PR" Type="Self.A_PROV_CVV_PR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_PROV_SRC">
+              <PropertyRef Name="SourceID" />
+            </Principal>
+            <Dependent Role="A_PROV_CVV_PR">
+              <PropertyRef Name="SourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__A_PROV_DU__Sourc__5BE2A6F2">
+          <End Role="A_PROV_SRC" Type="Self.A_PROV_SRC" Multiplicity="1" />
+          <End Role="A_PROV_DUMPS_LDG" Type="Self.A_PROV_DUMPS_LDG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_PROV_SRC">
+              <PropertyRef Name="SourceID" />
+            </Principal>
+            <Dependent Role="A_PROV_DUMPS_LDG">
+              <PropertyRef Name="SourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__A_PROV_DU__Sourc__60A75C0F">
+          <End Role="A_PROV_SRC" Type="Self.A_PROV_SRC" Multiplicity="1" />
+          <End Role="A_PROV_DUMPS_PR" Type="Self.A_PROV_DUMPS_PR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_PROV_SRC">
+              <PropertyRef Name="SourceID" />
+            </Principal>
+            <Dependent Role="A_PROV_DUMPS_PR">
+              <PropertyRef Name="SourceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MindWiseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="A_PROV_BASE" EntityType="Self.A_PROV_BASE" />
+          <EntitySet Name="A_PROV_BINWALK" EntityType="Self.A_PROV_BINWALK" />
+          <EntitySet Name="A_PROV_CLIENT" EntityType="Self.A_PROV_CLIENT" />
+          <EntitySet Name="A_PROV_CVV_LDG" EntityType="Self.A_PROV_CVV_LDG" />
+          <EntitySet Name="A_PROV_CVV_PR" EntityType="Self.A_PROV_CVV_PR" />
+          <EntitySet Name="A_PROV_DUMPS_LDG" EntityType="Self.A_PROV_DUMPS_LDG" />
+          <EntitySet Name="A_PROV_DUMPS_PR" EntityType="Self.A_PROV_DUMPS_PR" />
+          <EntitySet Name="A_PROV_SRC" EntityType="Self.A_PROV_SRC" />
+          <AssociationSet Name="FK__A_PROV_BA__Sourc__4D94879B" Association="Self.FK__A_PROV_BA__Sourc__4D94879B">
+            <End Role="A_PROV_SRC" EntitySet="A_PROV_SRC" />
+            <End Role="A_PROV_BASE" EntitySet="A_PROV_BASE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__A_PROV_BI__Clien__5165187F" Association="Self.FK__A_PROV_BI__Clien__5165187F">
+            <End Role="A_PROV_CLIENT" EntitySet="A_PROV_CLIENT" />
+            <End Role="A_PROV_BINWALK" EntitySet="A_PROV_BINWALK" />
+          </AssociationSet>
+          <AssociationSet Name="FK__A_PROV_CV__Sourc__71D1E811" Association="Self.FK__A_PROV_CV__Sourc__71D1E811">
+            <End Role="A_PROV_SRC" EntitySet="A_PROV_SRC" />
+            <End Role="A_PROV_CVV_LDG" EntitySet="A_PROV_CVV_LDG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__A_PROV_CV__Sourc__5812160E" Association="Self.FK__A_PROV_CV__Sourc__5812160E">
+            <End Role="A_PROV_SRC" EntitySet="A_PROV_SRC" />
+            <End Role="A_PROV_CVV_PR" EntitySet="A_PROV_CVV_PR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__A_PROV_DU__Sourc__5BE2A6F2" Association="Self.FK__A_PROV_DU__Sourc__5BE2A6F2">
+            <End Role="A_PROV_SRC" EntitySet="A_PROV_SRC" />
+            <End Role="A_PROV_DUMPS_LDG" EntitySet="A_PROV_DUMPS_LDG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__A_PROV_DU__Sourc__60A75C0F" Association="Self.FK__A_PROV_DU__Sourc__60A75C0F">
+            <End Role="A_PROV_SRC" EntitySet="A_PROV_SRC" />
+            <End Role="A_PROV_DUMPS_PR" EntitySet="A_PROV_DUMPS_PR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="MindWiseEntities">
+          <EntitySetMapping Name="A_PROV_BASE">
+            <EntityTypeMapping TypeName="Model.A_PROV_BASE">
+              <MappingFragment StoreEntitySet="A_PROV_BASE">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="BASE_ID" ColumnName="BASE_ID" />
+                <ScalarProperty Name="SourceID" ColumnName="SourceID" />
+                <ScalarProperty Name="BaseInfo" ColumnName="BaseInfo" />
+                <ScalarProperty Name="BaseDate" ColumnName="BaseDate" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="A_PROV_BINWALK">
+            <EntityTypeMapping TypeName="Model.A_PROV_BINWALK">
+              <MappingFragment StoreEntitySet="A_PROV_BINWALK">
+                <ScalarProperty Name="BIN" ColumnName="BIN" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="A_PROV_CLIENT">
+            <EntityTypeMapping TypeName="Model.A_PROV_CLIENT">
+              <MappingFragment StoreEntitySet="A_PROV_CLIENT">
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="ClientContact" ColumnName="ClientContact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="A_PROV_CVV_LDG">
+            <EntityTypeMapping TypeName="Model.A_PROV_CVV_LDG">
+              <MappingFragment StoreEntitySet="A_PROV_CVV_LDG">
+                <ScalarProperty Name="RECORDID" ColumnName="RECORDID" />
+                <ScalarProperty Name="SourceID" ColumnName="SourceID" />
+                <ScalarProperty Name="BASE_ID" ColumnName="BASE_ID" />
+                <ScalarProperty Name="BIN" ColumnName="BIN" />
+                <ScalarProperty Name="BANK" ColumnName="BANK" />
+                <ScalarProperty Name="CARD_TYPE" ColumnName="CARD_TYPE" />
+                <ScalarProperty Name="CARD_CLASS" ColumnName="CARD_CLASS" />
+                <ScalarProperty Name="CARD_LEVEL" ColumnName="CARD_LEVEL" />
+                <ScalarProperty Name="CARD_EXP" ColumnName="CARD_EXP" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="ADDR_LINE_1" ColumnName="ADDR_LINE_1" />
+                <ScalarProperty Name="ADDR_LINE_2" ColumnName="ADDR_LINE_2" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="A_PROV_CVV_PR">
+            <EntityTypeMapping TypeName="Model.A_PROV_CVV_PR">
+              <MappingFragment StoreEntitySet="A_PROV_CVV_PR">
+                <ScalarProperty Name="RECORDID" ColumnName="RECORDID" />
+                <ScalarProperty Name="SourceID" ColumnName="SourceID" />
+                <ScalarProperty Name="BASE_ID" ColumnName="BASE_ID" />
+                <ScalarProperty Name="BIN" ColumnName="BIN" />
+                <ScalarProperty Name="BANK" ColumnName="BANK" />
+                <ScalarProperty Name="CARD_TYPE" ColumnName="CARD_TYPE" />
+                <ScalarProperty Name="CARD_CLASS" ColumnName="CARD_CLASS" />
+                <ScalarProperty Name="CARD_LEVEL" ColumnName="CARD_LEVEL" />
+                <ScalarProperty Name="CARD_EXP" ColumnName="CARD_EXP" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="ADDR_LINE_1" ColumnName="ADDR_LINE_1" />
+                <ScalarProperty Name="ADDR_LINE_2" ColumnName="ADDR_LINE_2" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="A_PROV_DUMPS_LDG">
+            <EntityTypeMapping TypeName="Model.A_PROV_DUMPS_LDG">
+              <MappingFragment StoreEntitySet="A_PROV_DUMPS_LDG">
+                <ScalarProperty Name="RECORDID" ColumnName="RECORDID" />
+                <ScalarProperty Name="SourceID" ColumnName="SourceID" />
+                <ScalarProperty Name="BASE_ID" ColumnName="BASE_ID" />
+                <ScalarProperty Name="BIN" ColumnName="BIN" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="BANK" ColumnName="BANK" />
+                <ScalarProperty Name="CARD_TYPE" ColumnName="CARD_TYPE" />
+                <ScalarProperty Name="CARD_LEVEL" ColumnName="CARD_LEVEL" />
+                <ScalarProperty Name="CARD_CLASS" ColumnName="CARD_CLASS" />
+                <ScalarProperty Name="TRACKS" ColumnName="TRACKS" />
+                <ScalarProperty Name="TRACK_TYPE" ColumnName="TRACK_TYPE" />
+                <ScalarProperty Name="REFUNDABLE" ColumnName="REFUNDABLE" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="A_PROV_DUMPS_PR">
+            <EntityTypeMapping TypeName="Model.A_PROV_DUMPS_PR">
+              <MappingFragment StoreEntitySet="A_PROV_DUMPS_PR">
+                <ScalarProperty Name="RECORDID" ColumnName="RECORDID" />
+                <ScalarProperty Name="SourceID" ColumnName="SourceID" />
+                <ScalarProperty Name="BASE_ID" ColumnName="BASE_ID" />
+                <ScalarProperty Name="BIN" ColumnName="BIN" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="BANK" ColumnName="BANK" />
+                <ScalarProperty Name="CARD_TYPE" ColumnName="CARD_TYPE" />
+                <ScalarProperty Name="CARD_LEVEL" ColumnName="CARD_LEVEL" />
+                <ScalarProperty Name="CARD_CLASS" ColumnName="CARD_CLASS" />
+                <ScalarProperty Name="TRACKS" ColumnName="TRACKS" />
+                <ScalarProperty Name="TRACK_TYPE" ColumnName="TRACK_TYPE" />
+                <ScalarProperty Name="REFUNDABLE" ColumnName="REFUNDABLE" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="A_PROV_SRC">
+            <EntityTypeMapping TypeName="Model.A_PROV_SRC">
+              <MappingFragment StoreEntitySet="A_PROV_SRC">
+                <ScalarProperty Name="SourceID" ColumnName="SourceID" />
+                <ScalarProperty Name="SrcName" ColumnName="SrcName" />
+                <ScalarProperty Name="SrcURL" ColumnName="SrcURL" />
+                <ScalarProperty Name="SrcAltURL" ColumnName="SrcAltURL" />
+                <ScalarProperty Name="SrcMetadata" ColumnName="SrcMetadata" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
