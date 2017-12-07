@@ -17,7 +17,7 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public A_PROV_CLIENT()
         {
-            this.A_PROV_BINWALK = new HashSet<A_PROV_BINWALK>();
+            this.A_PROV_USERS = new HashSet<A_PROV_USERS>();
         }
     
         public int ClientID { get; set; }
@@ -25,6 +25,6 @@ namespace DAL
         public string ClientContact { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<A_PROV_BINWALK> A_PROV_BINWALK { get; set; }
+        public virtual ICollection<A_PROV_USERS> A_PROV_USERS { get; set; }
     }
 }

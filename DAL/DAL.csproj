@@ -38,9 +38,11 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,10 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="A_PROV_BASE.cs">
-      <DependentUpon>MindWise.tt</DependentUpon>
-    </Compile>
-    <Compile Include="A_PROV_BINWALK.cs">
+    <Compile Include="A_PROV_BINLIST.cs">
       <DependentUpon>MindWise.tt</DependentUpon>
     </Compile>
     <Compile Include="A_PROV_CLIENT.cs">
@@ -73,6 +72,13 @@
     <Compile Include="A_PROV_SRC.cs">
       <DependentUpon>MindWise.tt</DependentUpon>
     </Compile>
+    <Compile Include="A_PROV_USERS.cs">
+      <DependentUpon>MindWise.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="LDGColumnMapping.cs">
+      <DependentUpon>MindWise.tt</DependentUpon>
+    </Compile>
     <Compile Include="MindWise.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -88,8 +94,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MindWise.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\SignUpModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Utility\AppSetting.cs" />
+    <Compile Include="Utility\Constants.cs" />
+    <Compile Include="Utility\UserSession.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

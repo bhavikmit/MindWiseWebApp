@@ -14,8 +14,8 @@ namespace DAL
     
     public partial class A_PROV_DUMPS_PR
     {
-        public string RECORDID { get; set; }
-        public int SourceID { get; set; }
+        public string id { get; set; }
+        public Nullable<int> SourceID { get; set; }
         public string BASE_ID { get; set; }
         public string BIN { get; set; }
         public string COUNTRY { get; set; }
@@ -30,7 +30,7 @@ namespace DAL
         public string TRACK_TYPE { get; set; }
         public string REFUNDABLE { get; set; }
         public string PRICE { get; set; }
-        public Nullable<System.DateTime> DateAdded { get; set; }
+        public System.DateTime DateAdded { get; set; }
     
         public virtual A_PROV_SRC A_PROV_SRC { get; set; }
     }

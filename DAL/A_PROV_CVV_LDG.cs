@@ -15,7 +15,7 @@ namespace DAL
     public partial class A_PROV_CVV_LDG
     {
         public string RECORDID { get; set; }
-        public int SourceID { get; set; }
+        public int SOURCEID { get; set; }
         public string BASE_ID { get; set; }
         public string BIN { get; set; }
         public string BANK { get; set; }
@@ -37,7 +37,7 @@ namespace DAL
         public string FIRST_NAME { get; set; }
         public string LAST_NAME { get; set; }
         public string PRICE { get; set; }
-        public Nullable<System.DateTime> DateAdded { get; set; }
+        public System.DateTime DateAdded { get; set; }
     
         public virtual A_PROV_SRC A_PROV_SRC { get; set; }
     }

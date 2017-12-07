@@ -25,13 +25,14 @@ namespace DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<A_PROV_BASE> A_PROV_BASE { get; set; }
-        public virtual DbSet<A_PROV_BINWALK> A_PROV_BINWALK { get; set; }
+        public virtual DbSet<A_PROV_BINLIST> A_PROV_BINLIST { get; set; }
         public virtual DbSet<A_PROV_CLIENT> A_PROV_CLIENT { get; set; }
         public virtual DbSet<A_PROV_CVV_LDG> A_PROV_CVV_LDG { get; set; }
         public virtual DbSet<A_PROV_CVV_PR> A_PROV_CVV_PR { get; set; }
         public virtual DbSet<A_PROV_DUMPS_LDG> A_PROV_DUMPS_LDG { get; set; }
         public virtual DbSet<A_PROV_DUMPS_PR> A_PROV_DUMPS_PR { get; set; }
         public virtual DbSet<A_PROV_SRC> A_PROV_SRC { get; set; }
+        public virtual DbSet<A_PROV_USERS> A_PROV_USERS { get; set; }
+        public virtual DbSet<LDGColumnMapping> LDGColumnMappings { get; set; }
     }
 }
