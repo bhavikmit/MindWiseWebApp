@@ -57,5 +57,36 @@ namespace MindWise.Controllers
             }
 
         }
+        public JsonResult GetDUMPSLDG(JQueryDataTableParamModel jModel,string searchByBin = "")
+        {
+            try
+            {
+                string sortBy = jModel.iSortingCols + " " + jModel.sSortDir;
+                var result = DashboardRepository.GetDUMPSLDG(Convert.ToInt32(UserSession.ClientID),searchByBin, jModel.iDisplayStart, jModel.iDisplayLength);
+                int? totalRecord = result.Count > 0 ? result[0].TotalRecords : 0;
+                var DUMPSLDG = result.Select(row => new string[]
+                         {
+                            Convert.ToString(row.Bin),//0
+                            Convert.ToString(row.Tracks),//1
+                            Convert.ToString(row.TrackType),//2
+                            Convert.ToString(row.Bank),//3
+                            Convert.ToString(row.CardClass),//4
+                            Convert.ToString(row.STATE),//5
+                            Convert.ToString(row.City)//6
+                         });
+                return Json(new
+                {
+                    iTotalRecords = totalRecord,
+                    iTotalDisplayRecords = totalRecord,
+                    aaData = DUMPSLDG
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
     }
 }

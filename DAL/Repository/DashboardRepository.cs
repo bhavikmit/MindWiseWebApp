@@ -37,5 +37,23 @@ namespace DAL.Repository
                     }).ToList();
             }
         }
+        public static List<DUMPSLDGClass> GetDUMPSLDG(int clientId, string searchByBin, int pageIndex, int pageSize)
+        {
+            using (MindWiseEntities db = new MindWiseEntities())
+            {
+                return db.GetDUMPSLDG(clientId, searchByBin, pageIndex, pageSize).
+                    Select(x => new DUMPSLDGClass
+                    {
+                        Bin = x.Bin,
+                        Tracks=x.Tracks,
+                        TrackType=x.Track_Type,
+                        Bank = x.Bank,
+                        CardClass = x.Card_Class,
+                        STATE = x.STATE,
+                        City = x.City,
+                        TotalRecords = x.TotalRecords
+                    }).ToList();
+            }
+        }
     }
 }
