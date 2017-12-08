@@ -12,6 +12,8 @@ namespace DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class MindWiseEntities : DbContext
     {
@@ -34,5 +36,60 @@ namespace DAL
         public virtual DbSet<A_PROV_SRC> A_PROV_SRC { get; set; }
         public virtual DbSet<A_PROV_USERS> A_PROV_USERS { get; set; }
         public virtual DbSet<LDGColumnMapping> LDGColumnMappings { get; set; }
+    
+        public virtual ObjectResult<GetCardClass_Result> GetCardClass(Nullable<int> clientId)
+        {
+            var clientIdParameter = clientId.HasValue ?
+                new ObjectParameter("ClientId", clientId) :
+                new ObjectParameter("ClientId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCardClass_Result>("GetCardClass", clientIdParameter);
+        }
+    
+        public virtual ObjectResult<GetCVVLDG_Result> GetCVVLDG(Nullable<int> clientId, string serchByName, string searchByBin, Nullable<int> pageIndex, Nullable<int> pageSize)
+        {
+            var clientIdParameter = clientId.HasValue ?
+                new ObjectParameter("ClientId", clientId) :
+                new ObjectParameter("ClientId", typeof(int));
+    
+            var serchByNameParameter = serchByName != null ?
+                new ObjectParameter("SerchByName", serchByName) :
+                new ObjectParameter("SerchByName", typeof(string));
+    
+            var searchByBinParameter = searchByBin != null ?
+                new ObjectParameter("SearchByBin", searchByBin) :
+                new ObjectParameter("SearchByBin", typeof(string));
+    
+            var pageIndexParameter = pageIndex.HasValue ?
+                new ObjectParameter("PageIndex", pageIndex) :
+                new ObjectParameter("PageIndex", typeof(int));
+    
+            var pageSizeParameter = pageSize.HasValue ?
+                new ObjectParameter("PageSize", pageSize) :
+                new ObjectParameter("PageSize", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCVVLDG_Result>("GetCVVLDG", clientIdParameter, serchByNameParameter, searchByBinParameter, pageIndexParameter, pageSizeParameter);
+        }
+    
+        public virtual ObjectResult<GetDUMPSLDG_Result> GetDUMPSLDG(Nullable<int> clientId, string searchByBin, Nullable<int> pageIndex, Nullable<int> pageSize)
+        {
+            var clientIdParameter = clientId.HasValue ?
+                new ObjectParameter("ClientId", clientId) :
+                new ObjectParameter("ClientId", typeof(int));
+    
+            var searchByBinParameter = searchByBin != null ?
+                new ObjectParameter("SearchByBin", searchByBin) :
+                new ObjectParameter("SearchByBin", typeof(string));
+    
+            var pageIndexParameter = pageIndex.HasValue ?
+                new ObjectParameter("PageIndex", pageIndex) :
+                new ObjectParameter("PageIndex", typeof(int));
+    
+            var pageSizeParameter = pageSize.HasValue ?
+                new ObjectParameter("PageSize", pageSize) :
+                new ObjectParameter("PageSize", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetDUMPSLDG_Result>("GetDUMPSLDG", clientIdParameter, searchByBinParameter, pageIndexParameter, pageSizeParameter);
+        }
     }
 }

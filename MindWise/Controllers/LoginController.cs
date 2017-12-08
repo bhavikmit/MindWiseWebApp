@@ -45,6 +45,7 @@ namespace MindWise.Controllers
             UserSession.UserName = user.UserName;
             UserSession.Email = user.Email;
             UserSession.UserID = user.UserID;
+            UserSession.ClientID = user.ClientID;
         }
         [HttpGet]
         public ActionResult LogOut()

@@ -247,6 +247,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="GetCardClass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClientId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetCVVLDG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClientId" Type="int" Mode="In" />
+          <Parameter Name="SerchByName" Type="varchar" Mode="In" />
+          <Parameter Name="SearchByBin" Type="varchar" Mode="In" />
+          <Parameter Name="PageIndex" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetDUMPSLDG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClientId" Type="int" Mode="In" />
+          <Parameter Name="SearchByBin" Type="varchar" Mode="In" />
+          <Parameter Name="PageIndex" Type="int" Mode="In" />
+          <Parameter Name="PageSize" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="A_PROV_BINLIST" EntityType="Self.A_PROV_BINLIST" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="A_PROV_CLIENT" EntityType="Self.A_PROV_CLIENT" Schema="dbo" store:Type="Tables" />
@@ -320,6 +336,22 @@
             <End Role="A_PROV_SRC" EntitySet="A_PROV_SRC" />
             <End Role="LDGColumnMapping" EntitySet="LDGColumnMappings" />
           </AssociationSet>
+          <FunctionImport Name="GetCardClass" ReturnType="Collection(Model.GetCardClass_Result)" >
+          <Parameter Name="ClientId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetCVVLDG" ReturnType="Collection(Model.GetCVVLDG_Result)">
+            <Parameter Name="ClientId" Mode="In" Type="Int32" />
+            <Parameter Name="SerchByName" Mode="In" Type="String" />
+            <Parameter Name="SearchByBin" Mode="In" Type="String" />
+            <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetDUMPSLDG" ReturnType="Collection(Model.GetDUMPSLDG_Result)">
+            <Parameter Name="ClientId" Mode="In" Type="Int32" />
+            <Parameter Name="SearchByBin" Mode="In" Type="String" />
+            <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+            <Parameter Name="PageSize" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="A_PROV_BINLIST">
           <Key>
@@ -575,6 +607,37 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="GetCardClass_Result">
+          <Property Type="Int32" Name="CardCount" Nullable="true" />
+          <Property Type="String" Name="CardClass" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetCVVLDG_Result">
+          <Property Type="String" Name="RecordID" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="Base_ID" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="First_Name" Nullable="true" />
+          <Property Type="String" Name="Last_Name" Nullable="true" />
+          <Property Type="String" Name="UserName" Nullable="true" />
+          <Property Type="String" Name="Bin" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Bank" Nullable="true" />
+          <Property Type="String" Name="Card_Class" Nullable="true" />
+          <Property Type="String" Name="Country" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="STATE" Nullable="true" />
+          <Property Type="String" Name="City" Nullable="true" />
+          <Property Type="Int32" Name="TotalRecords" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetDUMPSLDG_Result">
+          <Property Type="String" Name="RecordID" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="Base_ID" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="Tracks" Nullable="true" />
+          <Property Type="String" Name="Track_Type" Nullable="true" />
+          <Property Type="String" Name="Bin" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Bank" Nullable="true" />
+          <Property Type="String" Name="Card_Class" Nullable="true" />
+          <Property Type="String" Name="Country" Nullable="true" />
+          <Property Type="String" Name="STATE" Nullable="true" />
+          <Property Type="String" Name="City" Nullable="true" />
+          <Property Type="Int32" Name="TotalRecords" Nullable="true" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -754,6 +817,49 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetCardClass" FunctionName="Model.Store.GetCardClass">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.GetCardClass_Result">
+                <ScalarProperty Name="CardCount" ColumnName="CardCount" />
+                <ScalarProperty Name="CardClass" ColumnName="CardClass" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetCVVLDG" FunctionName="Model.Store.GetCVVLDG">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.GetCVVLDG_Result">
+                <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+                <ScalarProperty Name="Base_ID" ColumnName="Base_ID" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Bin" ColumnName="Bin" />
+                <ScalarProperty Name="Bank" ColumnName="Bank" />
+                <ScalarProperty Name="Card_Class" ColumnName="Card_Class" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="TotalRecords" ColumnName="TotalRecords" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetDUMPSLDG" FunctionName="Model.Store.GetDUMPSLDG">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.GetDUMPSLDG_Result">
+                <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+                <ScalarProperty Name="Base_ID" ColumnName="Base_ID" />
+                <ScalarProperty Name="Tracks" ColumnName="Tracks" />
+                <ScalarProperty Name="Track_Type" ColumnName="Track_Type" />
+                <ScalarProperty Name="Bin" ColumnName="Bin" />
+                <ScalarProperty Name="Bank" ColumnName="Bank" />
+                <ScalarProperty Name="Card_Class" ColumnName="Card_Class" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="TotalRecords" ColumnName="TotalRecords" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

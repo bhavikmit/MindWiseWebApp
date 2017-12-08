@@ -75,7 +75,18 @@
     <Compile Include="A_PROV_USERS.cs">
       <DependentUpon>MindWise.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\CardClass.cs" />
+    <Compile Include="Entities\CVVLDGClass.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="GetCardClass_Result.cs">
+      <DependentUpon>MindWise.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetCVVLDG_Result.cs">
+      <DependentUpon>MindWise.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDUMPSLDG_Result.cs">
+      <DependentUpon>MindWise.tt</DependentUpon>
+    </Compile>
     <Compile Include="LDGColumnMapping.cs">
       <DependentUpon>MindWise.tt</DependentUpon>
     </Compile>
@@ -94,9 +105,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MindWise.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\JQueryDataTableParamModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\SignUpModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\DashboardRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Utility\AppSetting.cs" />
     <Compile Include="Utility\Constants.cs" />

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../Assets/images/favicon.png" type="image/png">
     <title>MindWise</title>
+    <link href="@Url.Content("~/Assets/plugins/datatables/dataTables.min.css?v=" + AppSetting.Version + "")" rel="stylesheet" />
     <link href="@Url.Content("~/Assets/css/style.css?v=" + AppSetting.Version + "")" rel="stylesheet" />
     <link href="@Url.Content("~/Assets/css/theme.css?v=" + AppSetting.Version + "")" rel="stylesheet" />
     <link href="@Url.Content("~/Assets/css/ui.css?v=" + AppSetting.Version + "")" rel="stylesheet" />
@@ -14,11 +15,10 @@
     <link href="@Url.Content("~/Assets/plugins/metrojs/metrojs.min.css?v=" + AppSetting.Version + "")" rel="stylesheet" />
     <link href="@Url.Content("~/Assets/plugins/maps-amcharts/ammap/ammap.css?v=" + AppSetting.Version + "")" rel="stylesheet" />
     <!-- END PAGE STYLE -->
+    <script src="@Url.Content("~/Assets/plugins/jquery/jquery-3.1.0.min.js?v=" + AppSetting.Version + "")"></script>
     <script src="@Url.Content("~/Assets/plugins/modernizr/modernizr-2.6.2-respond-1.1.0.min.js?v=" + AppSetting.Version + "")"></script>
-    <script src="@Url.Content("~/Scripts/jNotify.jquery.js?v=" + AppSetting.Version + "")"></script>
+    <script src="@Url.Content("~/Scripts/jNotify.jquery.js")"></script>
     <script src="@Url.Content("~/Scripts/Common.js?v=" + AppSetting.Version + "")"></script>
-    @*@Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")*@
 </head>
 <body class="fixed-topbar fixed-sidebar theme-sdtl color-default dashboard">
     <section>
@@ -227,13 +227,13 @@
             <div class="topbar">
                 <div class="header-left">
                     <div class="topnav">
-                        <a class="menutoggle" href="#" data-toggle="sidebar-collapsed"><span class="menu__handle"><span>Menu</span></span></a>
-                        <ul class="nav nav-icons">
-                            <li><a href="#" class="toggle-sidebar-top"><span class="icon-user-following"></span></a></li>
-                            <li><a href="mailbox.html"><span class="octicon octicon-mail-read"></span></a></li>
-                            <li><a href="#"><span class="octicon octicon-flame"></span></a></li>
-                            <li><a href="builder-page.html"><span class="octicon octicon-rocket"></span></a></li>
-                        </ul>
+                        @*<a class="menutoggle" href="#" data-toggle="sidebar-collapsed"><span class="menu__handle"><span>Menu</span></span></a>
+                            <ul class="nav nav-icons">
+                                <li><a href="#" class="toggle-sidebar-top"><span class="icon-user-following"></span></a></li>
+                                <li><a href="mailbox.html"><span class="octicon octicon-mail-read"></span></a></li>
+                                <li><a href="#"><span class="octicon octicon-flame"></span></a></li>
+                                <li><a href="builder-page.html"><span class="octicon octicon-rocket"></span></a></li>
+                            </ul>*@
                     </div>
                 </div>
                 <div class="header-right">
@@ -465,7 +465,7 @@
         </div>
         <!-- END MAIN CONTENT -->
         <!-- BEGIN BUILDER -->
-        <div class="builder hidden-sm hidden-xs" id="builder">
+        <div class="builder hidden-sm hidden-xs" id="builder" style="display:none">
             <a class="builder-toggle"><i class="icon-wrench"></i></a>
             <div class="inner">
                 <div class="builder-container">
@@ -1064,7 +1064,7 @@
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)*@
     <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
-    <script src="@Url.Content("~/Assets/plugins/jquery/jquery-3.1.0.min.js?v=" + AppSetting.Version + "")"></script>
+    <input type="hidden" id="hdnAppUrl" value="@AppSetting.AppUrl" />
     <script src="@Url.Content("~/Assets/plugins/jquery/jquery-migrate-3.0.0.min.js?v=" + AppSetting.Version + "")"></script>
     <script src="@Url.Content("~/Assets/plugins/jquery-ui/jquery-ui.min.js?v=" + AppSetting.Version + "")"></script>
     <script src="@Url.Content("~/Assets/plugins/gsap/main-gsap.min.js?v=" + AppSetting.Version + "")"></script>
@@ -1106,6 +1106,8 @@
     <script src="@Url.Content("~/Assets/js/widgets/todo_list.js?v=" + AppSetting.Version + "")"></script>
     <script src="@Url.Content("~/Assets/js/widgets/widget_weather.js?v=" + AppSetting.Version + "")"></script>
     <script src="@Url.Content("~/Assets/js/pages/dashboard.js?v=" + AppSetting.Version + "")"></script>
+    <script src="@Url.Content("~/Assets/plugins/datatables/jquery.dataTables.min.js?v=" + AppSetting.Version + "")"></script>  Tables Filtering, Sorting & Editing 
+    <script src="@Url.Content("~/Assets/plugins/datatables/dataTables.bootstrap.min.js?v=" + AppSetting.Version + "")"></script>
     <!-- END PAGE SCRIPT -->
     <script src="@Url.Content("~/Assets/js/layout.js?v=" + AppSetting.Version + "")"></script>
 

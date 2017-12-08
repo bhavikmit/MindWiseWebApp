@@ -619,6 +619,7 @@
     <Content Include="Assets\js\pages\dashboard.js" />
     <Content Include="Assets\js\pages\login-v1.js" />
     <Content Include="Assets\js\pages\search.js" />
+    <Content Include="Assets\js\pages\table_dynamic.js" />
     <Content Include="Assets\js\plugins.js" />
     <Content Include="Assets\js\quickview.js" />
     <Content Include="Assets\js\sidebar_hover.js" />
@@ -788,6 +789,9 @@
     <Content Include="Assets\plugins\charts-highstock\js\themes\skies.js" />
     <Content Include="Assets\plugins\charts-sparkline\sparkline.js" />
     <Content Include="Assets\plugins\charts-sparkline\sparkline.min.js" />
+    <Content Include="Assets\plugins\datatables\dataTables.bootstrap.min.js" />
+    <Content Include="Assets\plugins\datatables\dataTables.min.css" />
+    <Content Include="Assets\plugins\datatables\jquery.dataTables.min.js" />
     <Content Include="Assets\plugins\gsap\main-gsap.min.js" />
     <Content Include="Assets\plugins\icheck\demo\css\banner.jpg" />
     <Content Include="Assets\plugins\icheck\demo\css\custom.css" />
@@ -2664,10 +2668,12 @@
     <Content Include="Assets\plugins\slick\slick.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Common.js" />
+    <Content Include="Scripts\Dashboard\Dashboard.js" />
     <Content Include="Scripts\jNotify.jquery.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -2694,6 +2700,8 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\SignUp\Index.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\PartialView\CVVLDG.cshtml" />
+    <Content Include="Views\PartialView\DUMPSLDG.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
