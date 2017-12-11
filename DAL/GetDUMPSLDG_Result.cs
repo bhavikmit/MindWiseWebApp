@@ -24,5 +24,8 @@ namespace DAL
         public string STATE { get; set; }
         public string City { get; set; }
         public Nullable<int> TotalRecords { get; set; }
+        public string Refundable { get; set; }
+        public string Zip { get; set; }
+        public string Price { get; set; }
     }
 }

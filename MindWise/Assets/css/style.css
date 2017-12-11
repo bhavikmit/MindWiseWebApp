@@ -1544,7 +1544,7 @@ body:not(.sidebar-collapsed) .topbar .header-left .topnav .menutoggle:hover .men
 }
 .sidebar .logopanel {
   background: #202226;
-  height: 50px;
+  height: 100px;
   left: 0;
   padding: 10px;
   position: fixed;
@@ -2863,6 +2863,7 @@ body:not(.sidebar-collapsed) .sidebar .sidebar-inner .nav-sidebar > li.nav-paren
   right: auto;
   left: 0;
   bottom: 0;
+  top:101px;
   z-index: 202;
 }
 @media screen and (min-width: 1024px) {
@@ -13238,4 +13239,5 @@ select:focus,
 .mCSB_scrollTools .mCSB_draggerRail, .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0;}
 .mCSB_scrollTools {width: 5px;}
 .sidebar-widgets .progress {margin-top: 10px; }
+
 

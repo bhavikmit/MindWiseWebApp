@@ -148,6 +148,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CNPController.cs" />
+    <Compile Include="Controllers\CPController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -522,6 +524,7 @@
     <Content Include="Assets\images\logo\themeforest.png" />
     <Content Include="Assets\images\logo\themes-lab.png" />
     <Content Include="Assets\images\magnifier.svg" />
+    <Content Include="Assets\images\mindwise.png" />
     <Content Include="Assets\images\modals\basic.png" />
     <Content Include="Assets\images\modals\color-footer.png" />
     <Content Include="Assets\images\modals\color-full.png" />
@@ -2702,6 +2705,8 @@
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\PartialView\CVVLDG.cshtml" />
     <Content Include="Views\PartialView\DUMPSLDG.cshtml" />
+    <Content Include="Views\CP\Index.cshtml" />
+    <Content Include="Views\CNP\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

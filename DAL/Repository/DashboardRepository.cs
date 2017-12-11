@@ -20,37 +20,40 @@ namespace DAL.Repository
                     }).ToList();
             }
         }
-        public static List<CVVLDGClass> GetCVVLDG(int clientId, string serchByName, string searchByBin, int pageIndex, int pageSize)
+        public static List<CVVLDGClass> GetCVVLDG(int clientId, string SerchBy, int pageIndex, int pageSize)
         {
             using (MindWiseEntities db = new MindWiseEntities())
             {
-                return db.GetCVVLDG(clientId, serchByName, searchByBin, pageIndex, pageSize).
+                return db.GetCVVLDG(clientId, SerchBy, pageIndex, pageSize).
                     Select(x => new CVVLDGClass
                     {
-                        UserName = x.UserName,
-                        Bin = x.Bin,
-                        Bank = x.Bank,
-                        CardClass = x.Card_Class,
-                        STATE = x.STATE,
+                        FirstName = x.First_Name,
+                        LastName = x.Last_Name,
+                        Address = x.Address,
+                        Price = x.Price,
                         City = x.City,
+                        STATE = x.STATE,
+                        Zip = x.Zip,
+                        DOB = x.DOB,
+                        Phone = x.Phone,
+                        Gender = x.Gender,
                         TotalRecords = x.TotalRecords
                     }).ToList();
             }
         }
-        public static List<DUMPSLDGClass> GetDUMPSLDG(int clientId, string searchByBin, int pageIndex, int pageSize)
+        public static List<DUMPSLDGClass> GetDUMPSLDG(int clientId, string SearchBy, int pageIndex, int pageSize)
         {
             using (MindWiseEntities db = new MindWiseEntities())
             {
-                return db.GetDUMPSLDG(clientId, searchByBin, pageIndex, pageSize).
+                return db.GetDUMPSLDG(clientId, SearchBy, pageIndex, pageSize).
                     Select(x => new DUMPSLDGClass
                     {
-                        Bin = x.Bin,
                         Tracks=x.Tracks,
-                        TrackType=x.Track_Type,
-                        Bank = x.Bank,
-                        CardClass = x.Card_Class,
+                        Price=x.Price,
+                        Refundable = x.Refundable,
                         STATE = x.STATE,
                         City = x.City,
+                        Zip = x.Zip,
                         TotalRecords = x.TotalRecords
                     }).ToList();
             }

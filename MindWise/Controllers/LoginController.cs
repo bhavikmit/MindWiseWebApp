@@ -54,7 +54,7 @@ namespace MindWise.Controllers
             {
                 Session.Abandon();
                 Session.Clear();
-                return RedirectToAction("Index", "Login");
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {

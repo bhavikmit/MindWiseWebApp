@@ -8,14 +8,14 @@ namespace DAL.Entities
 {
     public class DUMPSLDGClass
     {
+        public string RecordID { get; set; }
+        public string Base_ID { get; set; }
         public string Tracks { get; set; }
-        public string TrackType { get; set; }
-        public string Bin { get; set; }
-        public string Bank { get; set; }
-        public string CardClass { get; set; }
-        public string Country { get; set; }
         public string STATE { get; set; }
         public string City { get; set; }
+        public string Refundable { get; set; }
+        public string Zip { get; set; }
+        public string Price { get; set; }
         public Nullable<int> TotalRecords { get; set; }
     }
 }

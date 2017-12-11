@@ -38,7 +38,7 @@
                 dataType: "json",
                 success: function (response) {
                     if (response == 1) {
-                        window.location.href = $("#hdnAppUrl").val() + "/Dashboard/Index";
+                        window.location.href = $("#hdnAppUrl").val() + "/Dashboard";
                         //ShowSuccess("Success", 'bottom')
                     }
                      else

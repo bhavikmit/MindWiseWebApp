@@ -252,14 +252,13 @@
         </Function>
         <Function Name="GetCVVLDG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ClientId" Type="int" Mode="In" />
-          <Parameter Name="SerchByName" Type="varchar" Mode="In" />
-          <Parameter Name="SearchByBin" Type="varchar" Mode="In" />
+          <Parameter Name="SerchBy" Type="varchar" Mode="In" />
           <Parameter Name="PageIndex" Type="int" Mode="In" />
           <Parameter Name="PageSize" Type="int" Mode="In" />
         </Function>
         <Function Name="GetDUMPSLDG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ClientId" Type="int" Mode="In" />
-          <Parameter Name="SearchByBin" Type="varchar" Mode="In" />
+          <Parameter Name="SearchBy" Type="varchar" Mode="In" />
           <Parameter Name="PageIndex" Type="int" Mode="In" />
           <Parameter Name="PageSize" Type="int" Mode="In" />
         </Function>
@@ -341,14 +340,13 @@
           </FunctionImport>
           <FunctionImport Name="GetCVVLDG" ReturnType="Collection(Model.GetCVVLDG_Result)">
             <Parameter Name="ClientId" Mode="In" Type="Int32" />
-            <Parameter Name="SerchByName" Mode="In" Type="String" />
-            <Parameter Name="SearchByBin" Mode="In" Type="String" />
+            <Parameter Name="SerchBy" Mode="In" Type="String" />
             <Parameter Name="PageIndex" Mode="In" Type="Int32" />
             <Parameter Name="PageSize" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetDUMPSLDG" ReturnType="Collection(Model.GetDUMPSLDG_Result)">
             <Parameter Name="ClientId" Mode="In" Type="Int32" />
-            <Parameter Name="SearchByBin" Mode="In" Type="String" />
+            <Parameter Name="SearchBy" Mode="In" Type="String" />
             <Parameter Name="PageIndex" Mode="In" Type="Int32" />
             <Parameter Name="PageSize" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -624,6 +622,12 @@
           <Property Type="String" Name="STATE" Nullable="true" />
           <Property Type="String" Name="City" Nullable="true" />
           <Property Type="Int32" Name="TotalRecords" Nullable="true" />
+          <Property Type="String" Name="Address" Nullable="true" />
+          <Property Type="String" Name="Price" Nullable="true" />
+          <Property Type="String" Name="Zip" Nullable="true" />
+          <Property Type="String" Name="DOB" Nullable="true" />
+          <Property Type="String" Name="Phone" Nullable="true" />
+          <Property Type="String" Name="Gender" Nullable="true" />
         </ComplexType>
         <ComplexType Name="GetDUMPSLDG_Result">
           <Property Type="String" Name="RecordID" Nullable="false" MaxLength="255" />
@@ -637,6 +641,9 @@
           <Property Type="String" Name="STATE" Nullable="true" />
           <Property Type="String" Name="City" Nullable="true" />
           <Property Type="Int32" Name="TotalRecords" Nullable="true" />
+          <Property Type="String" Name="Refundable" Nullable="true" />
+          <Property Type="String" Name="Zip" Nullable="true" />
+          <Property Type="String" Name="Price" Nullable="true" />
         </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
@@ -840,6 +847,12 @@
                 <ScalarProperty Name="STATE" ColumnName="STATE" />
                 <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="TotalRecords" ColumnName="TotalRecords" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -857,6 +870,9 @@
                 <ScalarProperty Name="STATE" ColumnName="STATE" />
                 <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="TotalRecords" ColumnName="TotalRecords" />
+                <ScalarProperty Name="Refundable" ColumnName="Refundable" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

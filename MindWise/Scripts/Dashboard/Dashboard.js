@@ -1,16 +1,16 @@
 ﻿$(function() {
     tblCVVLDG();
    tblDUMPSLDG();
-    $("#btnSearchCVVLDG").on("click", function() {
+    $("#btnSearchCNP").on("click", function() {
         tblCVVLDG();
     });
-$("#btnSearchDUMPSLDG").on("click", function() {
+$("#btnSearchCP").on("click", function() {
         tblDUMPSLDG();
     });
 });
 
 function tblCVVLDG() {
-    $("#tblCVVLDG").dataTable({
+   var oTable =   $("#tblCVVLDG").dataTable({
         "bServerSide": true,
         "bProcessing": true,
         "bFilter": false,
@@ -21,15 +21,11 @@ function tblCVVLDG() {
         "bInfo": true,
         responsive: true,
         "sServerMethod": "POST",
-        sAjaxSource: "/Dashboard/GetCVVLDG",
+        sAjaxSource: "/CNP/GetCVVLDG",
         "fnServerData": function(sSource, aoData, fnCallback) {
             aoData.push({
-                "name": "serchByName",
-                "value": $("#txtSearchbyUsername").val()
-            });
-            aoData.push({
-                "name": "searchByBin",
-                "value": $("#txtSearchbyBin").val()
+                "name": "SerchBy",
+                "value": $("#txtSearchCNP").val()
             });
             $.getJSON(sSource, aoData, function(json) {
                 fnCallback(json);
@@ -51,43 +47,71 @@ function tblCVVLDG() {
         "sPaginationType": "full_numbers",
         "aoColumns": [{
                 "aTargets": [0],
-                "sName": "Bin",
-                "mRender": function(data, type, row) {
-                    return row[1];
-                }
-            },
-            {
-                "aTargets": [1],
-                "mData": "UserName",
+                "sName": "FirstName",
                 "mRender": function(data, type, row) {
                     return row[0];
                 }
             },
             {
+                "aTargets": [1],
+                "mData": "LastName",
+                "mRender": function(data, type, row) {
+                    return row[1];
+                }
+            },
+            {
                 "aTargets": [2],
-                "mData": "Bank",
+                "mData": "Address",
                 "mRender": function(data, type, row) {
                     return row[2];
                 }
             },
             {
                 "aTargets": [3],
-                "mData": "CardClass",
+                "mData": "Price",
                 "mRender": function(data, type, row) {
                     return row[3];
                 }
             },
             {
                 "aTargets": [4],
-                "mData": "State",
+                "mData": "City",
                 "mRender": function(data, type, row) {
                     return row[4];
                 }
             }, {
                 "aTargets": [5],
-                "mData": "City",
+                "mData": "State",
                 "mRender": function(data, type, row) {
                     return row[5];
+                }
+            },
+            {
+                "aTargets": [6],
+                "mData": "Zip",
+                "mRender": function (data, type, row) {
+                    return row[6];
+                }
+            },
+            {
+                "aTargets": [7],
+                "mData": "DOB",
+                "mRender": function (data, type, row) {
+                    return row[7];
+                }
+            },
+            {
+                "aTargets": [8],
+                "mData": "Phone",
+                "mRender": function (data, type, row) {
+                    return row[8];
+                }
+            },
+            {
+                "aTargets": [9],
+                "mData": "Gender",
+                "mRender": function (data, type, row) {
+                    return row[9];
                 }
             },
             {
@@ -113,11 +137,11 @@ function tblDUMPSLDG() {
         "bInfo": true,
         responsive: true,
         "sServerMethod": "POST",
-        sAjaxSource: "/Dashboard/GetDUMPSLDG",
+        sAjaxSource: "/CP/GetDUMPSLDG",
         "fnServerData": function(sSource, aoData, fnCallback) {
             aoData.push({
-                "name": "searchByBin",
-                "value": $("#txtSearchDUMPSLDGbyBin").val()
+                "name": "SerchBy",
+                "value": $("#txtSearchCP").val()
             });
             $.getJSON(sSource, aoData, function(json) {
                 fnCallback(json);
@@ -139,50 +163,43 @@ function tblDUMPSLDG() {
         "sPaginationType": "full_numbers",
         "aoColumns": [{
                 "aTargets": [0],
-                "sName": "Bin",
+                "sName": "Tracks",
                 "mRender": function(data, type, row) {
                     return row[0];
                 }
             },
             {
                 "aTargets": [1],
-                "mData": "Tracks",
+                "mData": "Price",
                 "mRender": function(data, type, row) {
                     return row[1];
                 }
             },
             {
                 "aTargets": [2],
-                "mData": "TrackType",
+                "mData": "Refundable",
                 "mRender": function(data, type, row) {
                     return row[2];
                 }
             },
             {
                 "aTargets": [3],
-                "mData": "Bank",
+                "mData": "State",
                 "mRender": function(data, type, row) {
                     return row[3];
                 }
             },
             {
                 "aTargets": [4],
-                "mData": "CardClass",
+                "mData": "City",
                 "mRender": function(data, type, row) {
                     return row[4];
                 }
             }, {
                 "aTargets": [5],
-                "mData": "State",
+                "mData": "Zip",
                 "mRender": function(data, type, row) {
                     return row[5];
-                }
-            },
-{
-                "aTargets": [6],
-                "mData": "City",
-                "mRender": function(data, type, row) {
-                    return row[6];
                 }
             },
             {
