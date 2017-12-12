@@ -20,7 +20,7 @@ namespace MindWise.Controllers
         {
             try
             {
-                var result = DashboardRepository.GetDUMPSLDG(Convert.ToInt32(UserSession.ClientID), SerchBy, jModel.iDisplayStart, jModel.iDisplayLength);
+                var result = UserRepository.GetDUMPSLDG(Convert.ToInt32(UserSession.ClientID), SerchBy, jModel.iDisplayStart, jModel.iDisplayLength);
                 int? totalRecord = result.Count > 0 ? result[0].TotalRecords : 0;
                 var DUMPSLDG = result.Select(row => new string[]
                          {

@@ -519,6 +519,7 @@
     <Content Include="Assets\images\layouts\submenu-hover.jpg" />
     <Content Include="Assets\images\layouts\topbar-fixed.jpg" />
     <Content Include="Assets\images\layouts\topbar-fluid.jpg" />
+    <Content Include="Assets\images\loading-blue.gif" />
     <Content Include="Assets\images\logo\logo-dark.png" />
     <Content Include="Assets\images\logo\logo-white.png" />
     <Content Include="Assets\images\logo\themeforest.png" />
@@ -2668,7 +2669,9 @@
     <Content Include="Assets\plugins\slick\slick.scss" />
     <None Include="Properties\PublishProfiles\MindWise20171211065752 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\CNP\CNP.js" />
     <Content Include="Scripts\Common.js" />
+    <Content Include="Scripts\CP\CP.js" />
     <Content Include="Scripts\Dashboard\Dashboard.js" />
     <Content Include="Scripts\jNotify.jquery.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
