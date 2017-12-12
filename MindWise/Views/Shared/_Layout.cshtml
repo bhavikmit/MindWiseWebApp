@@ -894,6 +894,7 @@
         @RenderSection("scripts", required: false)*@
     <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
     <input type="hidden" id="hdnAppUrl" value="@AppSetting.AppUrl" />
+    <input type="hidden" id="hdnRecordPerPage" value="@AppSetting.RecordPerPage" />
     <script src="@Url.Content("~/Assets/plugins/jquery/jquery-migrate-3.0.0.min.js?v=" + AppSetting.Version + "")"></script>
     <script src="@Url.Content("~/Assets/plugins/jquery-ui/jquery-ui.min.js?v=" + AppSetting.Version + "")"></script>
     <script src="@Url.Content("~/Assets/plugins/gsap/main-gsap.min.js?v=" + AppSetting.Version + "")"></script>

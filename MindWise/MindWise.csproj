@@ -519,6 +519,7 @@
     <Content Include="Assets\images\layouts\submenu-hover.jpg" />
     <Content Include="Assets\images\layouts\topbar-fixed.jpg" />
     <Content Include="Assets\images\layouts\topbar-fluid.jpg" />
+    <Content Include="Assets\images\loading-blue.gif" />
     <Content Include="Assets\images\logo\logo-dark.png" />
     <Content Include="Assets\images\logo\logo-white.png" />
     <Content Include="Assets\images\logo\themeforest.png" />
@@ -622,7 +623,6 @@
     <Content Include="Assets\js\pages\dashboard.js" />
     <Content Include="Assets\js\pages\login-v1.js" />
     <Content Include="Assets\js\pages\search.js" />
-    <Content Include="Assets\js\pages\table_dynamic.js" />
     <Content Include="Assets\js\plugins.js" />
     <Content Include="Assets\js\quickview.js" />
     <Content Include="Assets\js\sidebar_hover.js" />
@@ -2670,7 +2670,9 @@
     <Content Include="Assets\plugins\slick\slick.css.map" />
     <Content Include="Assets\plugins\slick\slick.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\CNP\CNP.js" />
     <Content Include="Scripts\Common.js" />
+    <Content Include="Scripts\CP\CP.js" />
     <Content Include="Scripts\Dashboard\Dashboard.js" />
     <Content Include="Scripts\jNotify.jquery.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

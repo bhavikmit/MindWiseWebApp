@@ -20,7 +20,7 @@ namespace MindWise.Controllers
         {
             try
             {
-                var result = DashboardRepository.GetCVVLDG(Convert.ToInt32(UserSession.ClientID), SerchBy, jModel.iDisplayStart, jModel.iDisplayLength);
+                var result = UserRepository.GetCVVLDG(Convert.ToInt32(UserSession.ClientID), SerchBy, jModel.iDisplayStart, jModel.iDisplayLength);
                 int? totalRecord = result.Count > 0 ? result[0].TotalRecords : 0;
                 var CVVLDG = result.Select(row => new string[]
                          {
@@ -33,7 +33,9 @@ namespace MindWise.Controllers
                             Convert.ToString(row.Zip),//6
                             Convert.ToString(row.DOB),//7
                             Convert.ToString(row.Phone),//8
-                            Convert.ToString(row.Gender)//9
+                            Convert.ToString(row.Gender),//9
+                            Convert.ToString(row.SSN),//10
+                            Convert.ToString(row.DateADDED),//11
                          });
                 return Json(new
                 {
