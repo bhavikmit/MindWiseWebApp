@@ -11,6 +11,7 @@ namespace DAL.Utility
         #region App Settings
         public static string AppConfig_Version = "Version";
         public static string AppConfig_AppUrl = "AppUrl";
+        public static string AppConfig_RecordPerPage = "RecordPerPage";
         #endregion
 
         #region Session

@@ -628,6 +628,8 @@
           <Property Type="String" Name="DOB" Nullable="true" />
           <Property Type="String" Name="Phone" Nullable="true" />
           <Property Type="String" Name="Gender" Nullable="true" />
+          <Property Type="String" Name="SSN" Nullable="true" />
+          <Property Type="DateTime" Name="DateADDED" Nullable="false" Precision="23" />
         </ComplexType>
         <ComplexType Name="GetDUMPSLDG_Result">
           <Property Type="String" Name="RecordID" Nullable="false" MaxLength="255" />
@@ -853,6 +855,8 @@
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="DateADDED" ColumnName="DateADDED" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

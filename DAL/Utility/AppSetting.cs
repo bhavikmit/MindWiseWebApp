@@ -24,5 +24,12 @@ namespace DAL.Utility
                 return Convert.ToString(ConfigurationManager.AppSettings[Constants.AppConfig_AppUrl]);
             }
         }
+        public static string RecordPerPage
+        {
+            get
+            {
+                return Convert.ToString(ConfigurationManager.AppSettings[Constants.AppConfig_RecordPerPage]);
+            }
+        }
     }
 }
