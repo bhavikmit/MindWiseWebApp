@@ -292,7 +292,7 @@ function rangeSlider(){
 function buttonLoader(){
     if($('.ladda-button').length){
         Ladda.bind('.ladda-button', {
-            timeout: 2000
+            timeout: 9000
         });
         // Bind progress buttons and simulate loading progress
         Ladda.bind('.progress-demo button', {

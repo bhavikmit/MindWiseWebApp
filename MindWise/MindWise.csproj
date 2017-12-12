@@ -622,7 +622,6 @@
     <Content Include="Assets\js\pages\dashboard.js" />
     <Content Include="Assets\js\pages\login-v1.js" />
     <Content Include="Assets\js\pages\search.js" />
-    <Content Include="Assets\js\pages\table_dynamic.js" />
     <Content Include="Assets\js\plugins.js" />
     <Content Include="Assets\js\quickview.js" />
     <Content Include="Assets\js\sidebar_hover.js" />
@@ -811,7 +810,6 @@
     <Content Include="Assets\plugins\icheck\demo\css\montserrat-regular.svg" />
     <Content Include="Assets\plugins\icheck\demo\css\normalize.css" />
     <Content Include="Assets\plugins\icheck\demo\index.html" />
-    <Content Include="Assets\plugins\icheck\demo\js\custom.js" />
     <Content Include="Assets\plugins\icheck\demo\js\custom.min.js" />
     <Content Include="Assets\plugins\icheck\demo\js\jquery.js" />
     <Content Include="Assets\plugins\icheck\demo\js\zepto.js" />
@@ -2621,7 +2619,6 @@
     <Content Include="Assets\plugins\icheck\.gitignore" />
     <Content Include="Assets\plugins\icheck\bower.json" />
     <Content Include="Assets\plugins\icheck\CHANGELOG.md" />
-    <Content Include="Assets\plugins\icheck\demo\css\custom.styl" />
     <Content Include="Assets\plugins\icheck\demo\css\montserrat-bold.eot" />
     <Content Include="Assets\plugins\icheck\demo\css\montserrat-bold.ttf" />
     <Content Include="Assets\plugins\icheck\demo\css\montserrat-bold.woff" />
@@ -2669,6 +2666,7 @@
     <Content Include="Assets\plugins\slick\fonts\slick.woff" />
     <Content Include="Assets\plugins\slick\slick.css.map" />
     <Content Include="Assets\plugins\slick\slick.scss" />
+    <None Include="Properties\PublishProfiles\MindWise20171211065752 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Common.js" />
     <Content Include="Scripts\Dashboard\Dashboard.js" />
@@ -2676,7 +2674,6 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -2685,7 +2682,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
